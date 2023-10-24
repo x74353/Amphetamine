@@ -1,0 +1,2 @@
+Cmnd_Alias PMSET_AMPHETAMINE= /usr/bin/pmset -a disablesleep 1, /usr/bin/pmset -a disablesleep 0
+%admin ALL=(ALL) NOPASSWD: PMSET_AMPHETAMINE
