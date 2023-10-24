@@ -8,10 +8,10 @@ I'm truely sorry for this, but Apple provides no other way. Apple thinks they kn
 
 # How To Install Power Protect
 
-1. <b>[Download the Power Protect script](https://github.com/x74353/Amphetamine/main/Files/powerProtect.scpt)</b> and install it in the following location:<BR>
+1. <b>[Download the Power Protect script](https://raw.githubusercontent.com/x74353/Amphetamine/master/Files/PowerProtect_Script.zip)</b> and install it in the following location:<BR>
     ```/Users/YourUserAccount/Library/Application Scripts/com.if.Amphetamine/```
 
-2. <b>[Download the Power Protect configuration file](https://github.com/x74353/Amphetamine/main/Files/amphetamine_PowerProtect)</b> and install it in the following location:<BR>
+2. <b>[Download the Power Protect configuration file](https://raw.githubusercontent.com/x74353/Amphetamine/master/Files/PowerProtect_Configuration.zip)</b> and install it in the following location:<BR>
     ```/private/etc/sudoers.d/```
 
 3. Open Terminal.app from ```/Applications/Utilities/```, then copy & paste the following command into a Terminal window:<BR>
