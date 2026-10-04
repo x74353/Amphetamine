@@ -22,7 +22,16 @@ on enableDisablePowerProtect(inputString)
 				
 			end if
 			
-			set resultString to "success"
+			-- ONLY REPORT SUCCESS IF THE SYSTEM SETTING ACTUALLY CHANGED
+			if sleepDisabledStateMatches("1") then
+
+				set resultString to "success"
+
+			else
+
+				set resultString to "fail"
+
+			end if
 			
 		on error
 			
@@ -55,19 +64,49 @@ on enableDisablePowerProtect(inputString)
 					
 				end if
 				
-				set resultString to "success"
+				-- ONLY REPORT SUCCESS IF THE SYSTEM SETTING ACTUALLY CHANGED
+				if sleepDisabledStateMatches("0") then
+
+					set resultString to "success"
+
+				else
+
+					set resultString to "fail"
+
+				end if
 				
 			on error
 				
 				set resultString to "fail"
 				
 			end try
+
+		else
+
+			-- SLEEP IS ALREADY ENABLED
+			set resultString to "success"
 			
 		end if
 		
 	end if
 	
 end enableDisablePowerProtect
+
+-- CHECK WHETHER THE SYSTEM'S ACTUAL CLOSED-DISPLAY SLEEP SETTING MATCHES THE REQUEST
+on sleepDisabledStateMatches(expectedValue)
+
+	try
+
+		set pmsetResult to do shell script "/usr/bin/pmset -g | /usr/bin/awk '/SleepDisabled/{print $2; exit}'"
+		return pmsetResult is expectedValue
+
+	on error
+
+		return false
+
+	end try
+
+end sleepDisabledStateMatches
 
 -- INSTALL THE CONFIGURATION FILE TO MAKE POWER PROTECT AUTHENTICATION-LESS
 on installPowerProtectSudoOverride(inputString)
